@@ -1,9 +1,7 @@
-<div>
-    <!-- People find pleasure in different ways. I find it in keeping my mind clear. - Marcus Aurelius -->
-
-    {{ $active }} <br />
-    {{ $nama }}
+<nav class="nav flex-column">
     @foreach ($list as $row)
-        {{ $row }}
+        <a class="nav-link" href="#">
+            {{ $row['label'] }}
+        </a>
     @endforeach
-</div>
+</nav>

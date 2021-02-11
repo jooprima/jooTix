@@ -65,7 +65,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                     document.getElementById('logout-form').submit();">
+                                                                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -81,7 +81,7 @@
         </nav>
 
         <main class="py-4">
-            <x-menu nama="Team jooDev" :active=$active />
+            <x-menu :active=$active />
 
             @yield('content')
         </main>
