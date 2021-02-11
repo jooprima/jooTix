@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -65,7 +66,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                 document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -80,10 +81,17 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            <x-menu :active=$active />
-
-            @yield('content')
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">
+                        <x-menu :active=$active />
+                    </div>
+                    <div class="col-md-10 main-content">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 </body>
