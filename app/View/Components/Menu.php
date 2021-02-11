@@ -16,7 +16,7 @@ class Menu extends Component
     public function __construct($active)
     {
         //
-        $this->active=$active;
+        $this->active = $active;
     }
 
     /**
@@ -26,7 +26,7 @@ class Menu extends Component
      */
     public function render()
     {
-        return view('components.menu', ['active'=>$this->active]);
+        return view('components.menu', ['active' => $this->active]);
     }
 
     public function list()
