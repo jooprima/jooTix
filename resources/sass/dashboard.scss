@@ -1,4 +1,9 @@
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-bottom: 0px;
 }
 
@@ -29,16 +34,21 @@ body {
     font-weight: bold;
 }
 
-.card-header h3{
+.card-header h3 {
     font-size: 1em;
     letter-spacing: 1px;
 }
 
-table.table tr th{
+table.table tr th {
     color: #737373;
 }
 
-table.table tr td{
+table.table tr td {
     color: #737373;
     font-size: 0.9em;
+}
+
+.pagination{
+    justify-content: center;
+    align-items: center;
 }
