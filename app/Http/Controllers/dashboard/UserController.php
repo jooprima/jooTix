@@ -24,9 +24,12 @@ class UserController extends Controller
                         ->orWhere('email', 'like', '%'.$q.'%');
         })->paginate(10);
 
+        $request = $request->all();
+
 
         return view('dashboard/user/list', [
             'users' => $users,
+            'request' => $request,
             'active' => $users]);
     }
 
