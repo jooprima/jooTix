@@ -26,3 +26,4 @@ Route::get('/dashboard', 'App\Http\Controllers\Dashboard\DashboardController@ind
 //users
 Route::get('/dashboard/users', 'App\Http\Controllers\Dashboard\UserController@index');
 Route::get('/dashboard/user/edit/{id}', 'App\Http\Controllers\Dashboard\UserController@edit');
+Route::post('/dashboard/user/update/{id}', 'App\Http\Controllers\Dashboard\UserController@update');
