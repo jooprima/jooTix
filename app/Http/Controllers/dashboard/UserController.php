@@ -74,7 +74,10 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        dd($id);
+        $user = USER::find($id);
+
+        $active = 'Users';
+        return view('dashboard/user/form', ['user'=> $user,'active'=> $active]);
     }
 
     /**
