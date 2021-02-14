@@ -9,7 +9,8 @@
                 </div>
 
                 <div class="col-4 text-right">
-                    <button class="btn btn-sm text-secondary" data-toggle="modal" data-target="#deletemodal" title="delete user">
+                    <button class="btn btn-sm text-secondary" data-toggle="modal" data-target="#deletemodal"
+                        title="delete user">
                         <i class="fas fa-trash"></i>
                     </button>
                 </div>
@@ -51,8 +52,11 @@
     <div class="modal fade" id="deletemodal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="class-header">
+                <div class="modal-header">
                     <h5>Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="fas fa-window-close"></i>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <p> Anda Yakin Ingin menghapus User {{ $user->name }}</p>
