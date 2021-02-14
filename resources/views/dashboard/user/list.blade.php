@@ -45,8 +45,8 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->created_at }}</td>
                             <td>{{ $user->updated_at }}</td>
-                            <td><a href="{{ url('dashboard/user/edit/' . $user->id) }}"
-                                    class="btn btn-success btn-sm">Edit</a>
+                            <td><a title="edit" href="{{ url('dashboard/user/edit/' . $user->id) }}" class="btn btn-success btn-sm"><i
+                                        class="fas fa-pen"></i></a>
                             </td>
                         </tr>
                     @endforeach
