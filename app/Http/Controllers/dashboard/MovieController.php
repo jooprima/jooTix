@@ -29,7 +29,8 @@ class MovieController extends Controller
         return view('dashboard/movie/list', [
             'movies' => $movies,
             'request' => $request,
-            'active' => $movies]);
+            'active' => $active
+            ]);
     }
 
     /**
@@ -39,7 +40,11 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        $active = 'Movies';
+
+        return view('dashboard/movie/form', [
+            'active' => $active
+            ]);
     }
 
     /**
