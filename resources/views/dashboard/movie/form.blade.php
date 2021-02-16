@@ -24,23 +24,32 @@
                     @csrf
                     @method('put')
                     <div class="form-group">
-                        <label for="name">Nama</label>
-                        <input type="text" name="name" class="form-control" value="">
-                        @error('name')
+                        <label for="title">Title</label>
+                        <input type="text" name="title" class="form-control" value="">
+                        @error('title')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" class="form-control" value="">
+                        <label for="description">Description</label>
+                        <textarea name="description" class="form-control"></textarea>
                         @error('email')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
+                    <div class="form-group mt-4">
+                        <div class="custom-file">
+                            <input type="file" name="thumbnail" class="custom-file-input">
+                            <label for="thumbnail" class="custom-file-label">Thumbnail</label>
+                            @error('thumbnail')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="form-group mb-0">
                         <button type="button" onclick="window.history.back()"
                             class="btn btn-sm btn-secondary">Cancel</button>
-                        <button class="btn btn-success btn-sm">Update</button>
+                        <button class="btn btn-success btn-sm">Create</button>
                     </div>
                 </form>
             </div>
