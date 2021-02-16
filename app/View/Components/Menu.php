@@ -33,19 +33,24 @@ class Menu extends Component
     {
         return [
             [
-                'label'=>'Dashboard'
+                'label'=>'Dashboard',
+                'route' => 'dashboard'
             ],
             [
-                'label'=>'Movies'
+                'label'=>'Movies',
+                'route' => 'dashboard.movies'
             ],
             [
-                'label'=>'Theaters'
+                'label'=>'Theaters',
+                'route' => 'dashboard.theaters'
             ],
             [
-                'label'=>'Tickets'
+                'label'=>'Tickets',
+                'route' => 'dashboard.tickets'
             ],
             [
-                'label'=>'Users'
+                'label'=>'Users',
+                'route' => 'dashboard.users'
             ],
         ];
     }
