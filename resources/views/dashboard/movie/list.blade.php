@@ -25,6 +25,7 @@
     </div>
 
     <div class="card-body p-0">
+        @if($movies->total())
         <table class="table table-borderless table-striped table-hover">
             <thead>
                 <tr>
@@ -49,7 +50,11 @@
             </tbody>
         </table>
 
+
         {{ $movies->appends($request)->links('pagination::bootstrap-4') }}
+        @else
+        <h4 class="text-center p-3">Belum ada data Movie</h4>
+        @endif
     </div>
 </div>
 
