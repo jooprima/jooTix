@@ -25,6 +25,7 @@
     </div>
 
     <div class="card-body p-0">
+        @if($users->total())
         <table class="table table-borderless table-striped table-hover">
             <thead>
                 <tr>
@@ -53,6 +54,9 @@
             </tbody>
         </table>
 
+        @else
+        <h4 class="text-center p-3">{{ __('messages.no_data',['module' => 'User'])}}</h4>
+        @endif
         {{ $users->appends($request)->links('pagination::bootstrap-4') }}
     </div>
 </div>
