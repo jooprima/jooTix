@@ -20,9 +20,8 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <form method="POST" action="{{ route('dashboard.movies.store')}}">
+                <form method="POST" action="{{ route('dashboard.movies.store')}}" enctype="multipart/form-data">
                     @csrf
-                    @method('put')
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" name="title" class="form-control" value="">
@@ -33,7 +32,7 @@
                     <div class="form-group">
                         <label for="description">Description</label>
                         <textarea name="description" class="form-control"></textarea>
-                        @error('email')
+                        @error('description')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
