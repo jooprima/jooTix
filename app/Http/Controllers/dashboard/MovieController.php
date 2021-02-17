@@ -45,7 +45,9 @@ class MovieController extends Controller
         $active = 'Movies';
 
         return view('dashboard/movie/form', [
-            'active' => $active
+            'active' => $active,
+            'button'=> 'Create',
+            'url' => 'dashboard.movies.store'
             ]);
     }
 
