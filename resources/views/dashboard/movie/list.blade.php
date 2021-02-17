@@ -6,6 +6,7 @@
     <a href="{{route('dashboard.movies.create')}}" class="btn btn-primary btn-sm">+ Movie</a>
 </div>
 
+
 @if(session()->has('message'))
 <div class="alert alert-success">
     <strong>{{session()->get('message')}}</strong>
