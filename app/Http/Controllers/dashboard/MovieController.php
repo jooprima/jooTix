@@ -120,7 +120,29 @@ class MovieController extends Controller
      */
     public function update(Request $request, Movie $movie)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title'         => 'required|unique:App\Models\Movie,title,'.$movie->id,
+            'description'   => 'required',
+            'thumbnail'     => 'image',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                    ->route('dashboard.movies.update',$movie->id)
+                    ->withErrors($validator)
+                    ->withInput();
+        } else {
+            // $image = $request->file('thumbnail');
+            // $filename = time().'.'.$image->getClientOriginalExtension();
+            // Storage::disk('local')->putFileAs('public/movies', $image, $filename);
+
+            $movie->title = $request->input('title');
+            $movie->description = $request->input('description');
+            // $movie->thumbnail = $filename;
+            $movie->save();
+            return redirect()
+                    ->route('dashboard.movies');
+        };
     }
 
     /**
