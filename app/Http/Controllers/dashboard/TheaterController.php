@@ -126,7 +126,7 @@ class TheaterController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                    ->route('dashboard.theaters.update',$theater->id)
+                    ->route('dashboard.theaters.update', $theater->id)
                     ->withErrors($validator)
                     ->withInput();
         } else {
@@ -136,7 +136,7 @@ class TheaterController extends Controller
             $theater->save();
             return redirect()
                     ->route('dashboard.theaters')
-                    ->with('message', __('messages.store', ['title' => $theater->theater]));
+                    ->with('message', __('messages.update', ['title' => $theater->theater]));
         }
     }
 
@@ -148,6 +148,12 @@ class TheaterController extends Controller
      */
     public function destroy(Theater $theater)
     {
-        //
+        $title = $theater->theater;
+        
+        $theater->delete();
+
+        return redirect()
+                    ->route('dashboard.theaters')
+                    ->with('message', __('messages.delete', ['title' => $title]));
     }
 }

@@ -83,7 +83,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p> Anda Yakin Ingin menghapus Movie </p>
+                <p> Anda Yakin Ingin menghapus theater </p>
             </div>
             <div class="modal-footer">
                 <form action="{{ route('dashboard.theaters.delete', $theater->id)}}" method="POST">
