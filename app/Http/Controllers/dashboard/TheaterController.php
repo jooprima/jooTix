@@ -59,7 +59,7 @@ class TheaterController extends Controller
     public function store(Request $request, Theater $theater)
     {
         $validator = Validator::make($request->all(), [
-            'theater' => 'required',
+            'theater' => 'required|unique:App\Models\Models\theater,theater',
             'address' => 'required',
             'status' => 'required'
         ]);
@@ -104,8 +104,8 @@ class TheaterController extends Controller
         return view('dashboard/theater/form', [
             'theater' => $theater,
             'active' => $active,
-            'url' => 'dashboard.theaters.store',
-            'button' => 'create'
+            'url' => 'dashboard.theaters.update',
+            'button' => 'Update'
             ]);
     }
 
@@ -118,26 +118,26 @@ class TheaterController extends Controller
      */
     public function update(Request $request, Theater $theater)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'theater' => 'required',
-        //     'address' => 'required',
-        //     'status' => 'required'
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'theater' => 'required|unique:App\Models\Models\theater,theater,'.$theater->id,
+            'address' => 'required',
+            'status' => 'required'
+        ]);
 
-        // if ($validator->fails()) {
-        //     return redirect()
-        //             ->route('dashboard.theaters.edit', ['id' => $theater->id])
-        //             ->withErrors($validator)
-        //             ->withInput();
-        // } else {
-        //     $theater->theater = $request->input('theater');
-        //     $theater->address = $request->input('address');
-        //     $theater->status = $request->input('status');
-        //     $theater->save();
-        //     return redirect()
-        //             ->route('dashboard.theaters')
-        //             ->with('message', __('messages.store', ['title' => $theater->theater]));
-        // }
+        if ($validator->fails()) {
+            return redirect()
+                    ->route('dashboard.theaters.update',$theater->id)
+                    ->withErrors($validator)
+                    ->withInput();
+        } else {
+            $theater->theater = $request->input('theater');
+            $theater->address = $request->input('address');
+            $theater->status = $request->input('status');
+            $theater->save();
+            return redirect()
+                    ->route('dashboard.theaters')
+                    ->with('message', __('messages.store', ['title' => $theater->theater]));
+        }
     }
 
     /**
