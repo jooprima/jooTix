@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="mb-2">
-    <a href="{{route('dashboard.theaters.create')}}" class="btn btn-primary btn-sm">+ Movie</a>
+    <a href="{{route('dashboard.theaters.create')}}" class="btn btn-primary btn-sm">+ Theaters</a>
 </div>
 
 
