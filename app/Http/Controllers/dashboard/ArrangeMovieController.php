@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
-use App\Models\Models\ArrangeMovie;
-use App\Models\Models\Theater;
+use App\Models\Movie;
 use Illuminate\Http\Request;
+use App\Models\Models\Theater;
+use App\Models\Models\ArrangeMovie;
+use App\Http\Controllers\Controller;
 
 class ArrangeMovieController extends Controller
 {
@@ -39,9 +40,19 @@ class ArrangeMovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Theater $theater, Movie $movies)
     {
-        //
+        $active = 'Theaters';
+
+        $movies = Movie::get();
+
+        return view('dashboard/arrange_movie/form', [
+            'url' => 'dashboard.theaters.arrange.movie.store',
+            'button' => 'Create',
+            'theater' => $theater,
+            'movies' => $movies,
+            'active' => $active
+            ]);
     }
 
     /**
