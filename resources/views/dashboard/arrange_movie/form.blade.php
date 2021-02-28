@@ -72,7 +72,19 @@
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                    </div>
 
+                    <div class="form-group mb-0">
+                        <label for="schedule">Schedules</label>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+
+                            <schedule-component></schedule-component>
+                        </div>
+                        @error('schedules')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-2">
