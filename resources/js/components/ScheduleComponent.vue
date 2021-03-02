@@ -2,7 +2,7 @@
     <div>
         <div class="form-group form-row" v-for="(schedule, index) in schedules">
             <div class="col-11">
-                <input type="text" class="form-control" name="schedule[][]" v-model="schedule.hour" placeholder="Hour (ex : 23:55)">
+                <input type="text" class="form-control" name="schedules[][]" v-model="schedule.hour" placeholder="Hour (ex : 23:55)">
             </div>
             <div class="col-1">
                 <button type="button" @click="removeSchedule(index)" class="btn btn-outline-danger">x</button>

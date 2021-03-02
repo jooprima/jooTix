@@ -23,7 +23,7 @@
                 <form method="POST" action="{{ route($url, $theater->id ?? '')}}" enctype="multipart/form-data">
                     @csrf
                     @if(isset($theater))
-                    @method('put')
+                    {{-- @method('put') --}}
                     @endif
                     <input type="hidden" name="theater_id" value="{{$theater->id}}">
                     <div class="form-group">
@@ -31,12 +31,19 @@
                         <select name="movie_id" class="form-control">
                             <option value="">Pilih Movie</option>
                             @foreach($movies AS $movie)
-                            <option value="{{$movie->id}}">{{$movie->title}}</option>
+                                @if($movie->id == old('movie_id'))
+                                    <option value="{{$movie->id}}" selected>{{$movie->title}}</option>
+                                @else
+                                    <option value="{{$movie->id}}">{{$movie->title}}</option>
+                                @endif
                             @endforeach
                         </select>
+                        @error('movie_id')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="form-group">
-                        <label for="theater">Studio</label>
+                        <label for="studio">Studio</label>
                         <input type="text" name="studio" class="form-control @error('studio'){{'is-invalid'}} @enderror"
                             value="{{ old('studio') ?? $theater->studio ?? ''}}">
                         @error('studio')
