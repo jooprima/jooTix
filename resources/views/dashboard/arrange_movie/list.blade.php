@@ -25,7 +25,7 @@
             </div>
 
             <div class="col-4">
-                <form action="{{ route('dashboard.theaters') }}" method="GET">
+                <form action="{{ route('dashboard.theaters.arrange.movie', $theater->id) }}" method="GET">
                     <div class="input-group">
                         <input type="text" class="form-control form-control-sm" name="q"
                             value="{{ $request['q'] ?? '' }}">

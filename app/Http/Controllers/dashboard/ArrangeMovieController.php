@@ -24,6 +24,9 @@ class ArrangeMovieController extends Controller
 
         $arrangeMovies = ArrangeMovie::where('theater_id', $theater->id)
                                             ->with('movies')
+                                            ->whereHas('movies', function($query) use ($q){
+                                                $query->where('title', 'like', "%$q%");
+                                            })
                                             ->paginate();
         
         $request = $request->all();
