@@ -31,11 +31,11 @@
                         <select name="movie_id" class="form-control">
                             <option value="">Pilih Movie</option>
                             @foreach($movies AS $movie)
-                                @if($movie->id == old('movie_id'))
-                                    <option value="{{$movie->id}}" selected>{{$movie->title}}</option>
-                                @else
-                                    <option value="{{$movie->id}}">{{$movie->title}}</option>
-                                @endif
+                            @if($movie->id == old('movie_id'))
+                            <option value="{{$movie->id}}" selected>{{$movie->title}}</option>
+                            @else
+                            <option value="{{$movie->id}}">{{$movie->title}}</option>
+                            @endif
                             @endforeach
                         </select>
                         @error('movie_id')
@@ -86,8 +86,7 @@
                     </div>
                     <div class="card mb-3">
                         <div class="card-body">
-
-                            <schedule-component></schedule-component>
+                            <schedule-component :old-schedules="{{ json_encode(old('schedules') ?? [] )}}"></schedule-component>
                         </div>
                         @error('schedules')
                         <span class="text-danger">{{ $message }}</span>

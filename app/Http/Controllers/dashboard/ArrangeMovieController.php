@@ -70,7 +70,7 @@ class ArrangeMovieController extends Controller
             'price' => 'required',
             'rows' => 'required',
             'columns' => 'required',
-            'schedule' => 'required',
+            'schedules' => 'required',
             'status' => 'required',
         ]);
 

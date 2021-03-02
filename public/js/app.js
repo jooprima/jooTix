@@ -1867,6 +1867,10 @@ __webpack_require__.r(__webpack_exports__);
       schedules: []
     };
   },
+  props: ['oldSchedules'],
+  created: function created() {
+    this.schedules = this.oldSchedules;
+  },
   methods: {
     addSchedule: function addSchedule() {
       this.schedules.push({
@@ -37408,7 +37412,7 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "schedule[][]",
+                name: "schedules[" + index + "][hour]",
                 placeholder: "Hour (ex : 23:55)"
               },
               domProps: { value: schedule.hour },
