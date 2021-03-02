@@ -86,7 +86,7 @@
                     </div>
                     <div class="card mb-3">
                         <div class="card-body">
-                            <schedule-component :old-schedules="{{ json_encode(old('schedules') ?? [] )}}"></schedule-component>
+                            <schedule-component :old-schedules="{{ $arrangeMovie->schedules ?? json_encode(old('schedules') ?? []) }}"></schedule-component>
                         </div>
                         @error('schedules')
                         <span class="text-danger">{{ $message }}</span>
