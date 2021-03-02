@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ArrangeMovie extends Model
 {
-    use HasFactory;
+    protected $table = 'arrange_movie';
 }

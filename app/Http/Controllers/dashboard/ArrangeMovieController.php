@@ -62,16 +62,17 @@ class ArrangeMovieController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, ArrangeMovie $arrangeMovie)
     {
         $validator = Validator::make($request->all(), [
-            'studio' => 'required',
-            'movie_id' => 'required',
-            'price' => 'required',
-            'rows' => 'required',
-            'columns' => 'required',
-            'schedules' => 'required',
-            'status' => 'required',
+            'studio'        => 'required',
+            'theater_id'    => 'required',
+            'movie_id'      => 'required',
+            'price'         => 'required',
+            'rows'          => 'required',
+            'columns'       => 'required',
+            'schedules'     => 'required',
+            'status'        => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -80,7 +81,24 @@ class ArrangeMovieController extends Controller
                     ->withErrors($validator)
                     ->withInput();
         } else {
-            // $theater->theater = $request->input('theater');
+
+            $seats = [
+                'rows'      => $request->input('rows'),
+                'columns'   => $request->input('columns')
+            ];
+
+            $arrangeMovie->theater_id    = $request->input('theater_id');
+            $arrangeMovie->movie_id      = $request->input('movie_id');
+            $arrangeMovie->studio        = $request->input('studio');
+            $arrangeMovie->price         = $request->input('price');
+            $arrangeMovie->status        = $request->input('status');
+            $arrangeMovie->seats         = json_encode($seats);
+            $arrangeMovie->schedules     = json_encode($request->input('schedules'));
+            $arrangeMovie->save();
+
+            return redirect()
+                    ->route('dashboard.theaters.arrange.movie', $request->input('theater_id'))
+                    ->with('message', __('messages.store', ['title' => $request->input('studio')]));
         }
     }
     /**
