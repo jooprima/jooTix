@@ -22,14 +22,15 @@ class ArrangeMovieController extends Controller
 
         $active = 'Theaters';
 
-        // $theaters = $theaters->when($q, function ($query) use ($q) {
-        //     return $query->where('theater', 'like', '%'.$q.'%');
-        // })->paginate(10);
-
+        $arrangeMovies = ArrangeMovie::where('theater_id', $theater->id)
+                                            ->with('movies')
+                                            ->paginate();
+        
         $request = $request->all();
 
 
         return view('dashboard/arrange_movie/list', [
+            'arrangeMovies' => $arrangeMovies,
             'theater' => $theater,
             'request' => $request,
             'active' => $active

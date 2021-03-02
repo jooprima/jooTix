@@ -3,7 +3,8 @@
 @section('content')
 
 <div class="mb-2">
-    <a href="{{route('dashboard.theaters.arrange.movie.create', $theater->id)}}" class="btn btn-primary btn-sm">+ Movie</a>
+    <a href="{{route('dashboard.theaters.arrange.movie.create', $theater->id)}}" class="btn btn-primary btn-sm">+
+        Movie</a>
 </div>
 
 
@@ -20,7 +21,7 @@
     <div class="card-header">
         <div class="row">
             <div class="col-8 align-self-center">
-                <h3>Theater</h3>
+                <h3>Arrange Movie - {{$theater->theater}}</h3>
             </div>
 
             <div class="col-4">
@@ -40,7 +41,29 @@
     </div>
 
     <div class="card-body p-0">
-        
+        <table class="table table-borderless table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Movie</th>
+                    <th>Studio</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{-- akan ditambahkan --}}
+                @foreach ($arrangeMovies as $arrangeMovie)
+                    <tr>
+                        <td>{{ $arrangeMovie->movies->first()->title }}</td>
+                        <td>{{ $arrangeMovie->studio }}</td>
+                        <td>{{ $arrangeMovie->price }}</td>
+                        <td>{{ $arrangeMovie->status }}</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 
